@@ -154,16 +154,21 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-caption,
-th,
-td {
+caption{
   text-align: left;
   vertical-align: top;
   font-weight: normal;
 }
+
+th,
+td {
+  text-align: left;
+  vertical-align: middle;
+  font-weight: normal;
+}
 thead th,
 thead td {
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 /* Image inside */
 a img,
