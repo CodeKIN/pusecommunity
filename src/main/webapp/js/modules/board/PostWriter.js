@@ -64,16 +64,7 @@ jQuery(function() {
 			}
 			return true;
 		});
-		
-		$("a[href='#cancle']").click(function(){
-			var voSubmitsion = Submission.createSubmission();
-
-			Common.attr(voSubmitsion, "method", "get");
-			Common.attr(voSubmitsion, "action", "/community/freeboard/list.do");
-		
-			voSubmitsion.submit();
-		});
-		
+				
 		$("a[href='#save']").click(function(elClickedObj){
 			if(!confirm("정말로 저장하시겠습니까?")){
 				return false;
@@ -81,17 +72,9 @@ jQuery(function() {
 			
 			var targetform = document.getElementsByTagName("form")[0];
 			
-		    // editor's text value copy at textarea
 		    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
 		 
-		    // value validation is 
-		    // document.getElementById("content").value
 		    try {
-		    	if(targetform.prefix.value === "update"){
-		    		targetform.action = "/community/freeboard/update.do";
-		    	}else{
-		    		targetform.action = "/community/freeboard/save.do";
-		    	}
 		    	targetform.submit();
 		    } catch(e) {}
 		});

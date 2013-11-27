@@ -3,6 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.codekin</groupId>
+	<artifactId>pusecommunity</artifactId>
 	<name>pusecommunity</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -199,5 +200,4 @@
             </plugin>
         </plugins>
     </build>
-    <artifactId>pusecommunity</artifactId>
 </project>

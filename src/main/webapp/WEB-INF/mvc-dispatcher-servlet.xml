@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<context:component-scan base-package="org.codekin.pusecommunity">
+	<context:component-scan base-package="org.codekin">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Service" />
 		<context:exclude-filter type="annotation"
@@ -32,21 +32,27 @@
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver" />
 
 	<!-- 인터셉터에 매핑될 컨트롤러 -->
-	<bean id="homeController" class="org.codekin.pusecommunity.controller.HomeController" />
+	<bean id="puseCommunityController" class="org.codekin.pusecommunity.controller.PuseCommunityController" />
+	<!-- 인터셉터에 매핑될 컨트롤러 -->
+	<bean id="boardController" class="org.codekin.modules.board.controller.BoardController" />
 
 	<!-- 서블릿 요청에 대한 전처리 공통 인터셉터 -->
 	<bean id="commonHandlerInterceptor" class="org.codekin.pusecommunity.interceptor.CommonHandlerInterceptor" />
+	<!-- 서블릿 요청에 대한 전처리 공통 인터셉터 -->
+	<bean id="boardHandlerInterceptor" class="org.codekin.modules.board.interceptor.BoardHandlerInterceptor" />
 
 	<!-- 인터셉터, 컨트롤러, URL 매핑 -->
 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="interceptors">
 			<list>
-				<ref bean="commonHandlerInterceptor" />
+				<ref bean="commonHandlerInterceptor"/>
+				<ref bean="boardHandlerInterceptor" />
 			</list>
 		</property>
 		<property name="mappings">
 			<props>
-				<prop key="*">homeController</prop>
+				<prop key="*">puseCommunityController</prop>
+				<prop key="/modules/board/*.do">boardController</prop>
 			</props>
 		</property>
 	</bean>

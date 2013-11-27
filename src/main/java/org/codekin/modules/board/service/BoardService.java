@@ -1,27 +1,27 @@
-package org.codekin.pusecommunity.service;
+package org.codekin.modules.board.service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.codekin.pusecommunity.dao.CommunityDao;
+import org.codekin.modules.board.dao.BoardDao;
 import org.codekin.pusecommunity.model.FreeBoard;
+import org.codekin.pusecommunity.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommunityService extends CommonService{
+public class BoardService extends CommonService{
 	@Autowired
-	private CommunityDao communityDao;
+	private BoardDao boardDao;
 	
 	//viewPostCnt
-	private final static int pageCnt      = 15;
+	private final static int pageCnt      = 10;
 	//viewPageCnt
 	private final static int pageGrp      = 10;
 
-	public Map<String, Object> selectFreeBoardList() {
+	public Map<String, Object> selectPostList() {
 		HttpServletRequest request = this.getRequest();
 
 		int totCnt       = 0;
@@ -42,7 +42,7 @@ public class CommunityService extends CommonService{
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("startrow", startRow);
 		param.put("endrow", endRow);
-		result.put("boardList", communityDao.selectFreeBoardList(param));
+		result.put("boardList", boardDao.selectPostList(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param));
 
 		/* ****************************
 		 * select boardList
@@ -53,7 +53,7 @@ public class CommunityService extends CommonService{
 		 * create pagingInfo
 		 * ****************************/
 		
-		totCnt = communityDao.selectFreeBoardTotalCount();
+		totCnt = boardDao.selectTotalPostCount(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "");
 		
 		totPage = totCnt / pageCnt + (totCnt % pageCnt == 0 ? 0 : 1);
 		
@@ -73,10 +73,12 @@ public class CommunityService extends CommonService{
 		 * create pagingInfo
 		 * ****************************/
 		
+		result.put("board_type", request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "");
+		
 		return result;
 	}
 
-	public void saveFreeBoardList() {
+	public void savePost() {
 		HttpServletRequest request = this.getRequest();
 		String[] keys = {"subject", "content"};
 		
@@ -84,16 +86,16 @@ public class CommunityService extends CommonService{
 		
 		param.put("writer_id", request.getSession(false).getAttribute("USER_ID"));
 		
-		communityDao.saveFreeBoard(param);
+		boardDao.savePost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
 	}
 
-	public FreeBoard selectPostDetail() {
+	public FreeBoard selectPost() {
 		HttpServletRequest request = this.getRequest();
 		String[] keys = {"post_id"};
 		
 		Map<String, Object> param = this.getParamMap(keys, request);
 		
-		return communityDao.selectPostDetail(param);
+		return boardDao.selectPost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
 	}
 
 	public String updatePost() {
@@ -105,8 +107,8 @@ public class CommunityService extends CommonService{
 		 * checking writer and requester         *
 		 * ***************************************/
 		
-		if(communityDao.selectWriterId(param).equals(request.getSession(false).getAttribute("USER_ID"))){
-			communityDao.updatePost(param);
+		if(boardDao.selectPostWriterId(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param).equals(request.getSession(false).getAttribute("USER_ID"))){
+			boardDao.updatePost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
 		}
 		
 		/* ***************************************
@@ -114,5 +116,17 @@ public class CommunityService extends CommonService{
 		 * ***************************************/
 
 		return request.getParameter("post_id");
+	}
+
+	public String getClientPage() {
+		HttpServletRequest request = this.getRequest();
+
+		return request.getParameter("client_page") != null ? request.getParameter("client_page").toString() : "1";
+	}
+
+	public String getBoardType() {
+		HttpServletRequest request = this.getRequest();
+
+		return request.getParameter("board_type")  != null ? request.getParameter("board_type").toString() : "";
 	}
 }

@@ -16,7 +16,6 @@
 
 </head>
 <body>
-	${randommachine }
 	<div class="units-container">
 		<div class="message">
 			<span class="close"></span>

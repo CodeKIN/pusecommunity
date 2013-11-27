@@ -11,7 +11,7 @@
 	default-autowire="byName">
 
 
-	<context:component-scan base-package="org.codekin.pobi">
+	<context:component-scan base-package="org.codekin">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>

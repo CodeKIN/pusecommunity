@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="org.codekin.pobi">
+	<logger name="org.codekin.pusecommunity">
 		<level value="info" />
 	</logger>
 	
