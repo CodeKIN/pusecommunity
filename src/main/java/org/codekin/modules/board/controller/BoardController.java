@@ -23,7 +23,7 @@ public class BoardController {
 	@RequestMapping(value = "/modules/board/postList", method = RequestMethod.GET)
 	public String postList(Locale locale, Model model) {
 		Map<String, Object> boardInfo = boardService.selectPostList();
-		model.addAttribute("freeboard", boardInfo.get("boardList"));
+		model.addAttribute("board", boardInfo.get("boardList"));
 		model.addAttribute("paginginfo", boardInfo.get("pagingInfo"));
 		
 		return "modules/board/postList";
@@ -37,7 +37,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "/modules/board/postViewer", method = RequestMethod.GET)
 	public String postViewer(Locale locale, Model model) {
-		model.addAttribute("postdetail", boardService.selectPost());
+		model.addAttribute("post", boardService.selectPost());
 		
 		return "modules/board/postViewer";
 	}
@@ -62,7 +62,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "/modules/board/postUpdateViewer", method = RequestMethod.GET)
 	public String postUpdateViewer(Locale locale, Model model) {
-		model.addAttribute("postdetail", boardService.selectPost());
+		model.addAttribute("post", boardService.selectPost());
 		
 		return "modules/board/postWriter";
 	}
@@ -88,6 +88,6 @@ public class BoardController {
 	public String postSave(Locale locale, Model model) {
 		boardService.savePost();
 		
-		return "redirect:/modules/board/postList.do?client_page=" + boardService.getClientPage() + "&board_type=" + boardService.getBoardType();
+		return "redirect:/modules/board/postList.do?client_page=1&board_type=" + boardService.getBoardType();
 	}
 }

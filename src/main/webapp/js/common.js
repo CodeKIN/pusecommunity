@@ -5,7 +5,14 @@ Common = {
 			if(voSelector instanceof String){
 				selector = $("#" + voSelector);
 			}else if(voSelector instanceof Object){
-				selector = $("#" + voSelector.id);
+				var id = voSelector.id;
+				
+				if(id === ""){
+					id = voSelector.selector;
+				}else{
+					id = "#" + id;
+				}
+				selector = $(id);
 			}else{
 				alert("not support type of " + typeof voSelector);
 				return null;
@@ -31,7 +38,14 @@ Common = {
 			if(voSelector instanceof String){
 				selector = $("#" + voSelector);
 			}else if(voSelector instanceof Object){
-				selector = $("#" + voSelector.id);
+				var id = voSelector.id;
+				
+				if(!id){
+					id = voSelector.selector;
+				}else{
+					id = "#" + id;
+				}
+				selector = $(id);
 			}else{
 				alert("not support type of " + typeof voSelector);
 				return null;

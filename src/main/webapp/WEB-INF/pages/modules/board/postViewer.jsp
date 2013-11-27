@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>${postdetail.SUBJECT}</title>
+<title>${post.SUBJECT}</title>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +36,7 @@ table.width-100.table-simple.table-stroked thead tr th{
 	
 			<div id="units-container" align="right">
 				<a href="/modules/board/postList.do?client_page=${client_page}&board_type=${board_type}" class="label label-blue" style="font-size: 15px;">목록</a>
-				<a href="/modules/board/postUpdateViewer.do?client_page=${client_page}&board_type=${board_type}&post_id=${postdetail.POST_ID}" class="label label-blue" style="font-size: 15px;">수정</a>
+				<a href="/modules/board/postUpdateViewer.do?client_page=${client_page}&board_type=${board_type}&post_id=${post.POST_ID}" class="label label-blue" style="font-size: 15px;">수정</a>
 				<a href="/modules/board/postWriter.do?client_page=${client_page}&board_type=${board_type}" class="label label-blue" style="font-size: 15px;">글쓰기</a>
 			</div>
 			<table class="width-100 table-simple table-stroked">
@@ -51,17 +51,17 @@ table.width-100.table-simple.table-stroked thead tr th{
 				<tbody>
 					<tr>
 						<td style="text-align: center;">
-							${postdetail.POST_ID}
+							${post.POST_ID}
 						</td>
 						<td style="text-align: center;">
-							${postdetail.WRITER_ID}
+							${post.WRITER_ID}
 						</td>
 						<td style="text-align: center;">
-							${postdetail.VIEW_COUNT}
+							${post.VIEW_COUNT}
 						</td>
 						<td style="text-align: center;">
-							<fmt:formatDate value="${postdetail.WRITE_DT}" type="DATE" dateStyle="SHORT" /> <br />
-							<fmt:formatDate value="${postdetail.WRITE_DT}" type="TIME" timeStyle="SHORT" />
+							<fmt:formatDate value="${post.WRITE_DT}" type="DATE" dateStyle="SHORT" /> <br />
+							<fmt:formatDate value="${post.WRITE_DT}" type="TIME" timeStyle="SHORT" />
 						</td>
 					</tr>
 				</tbody>
@@ -71,10 +71,10 @@ table.width-100.table-simple.table-stroked thead tr th{
 							<div id="toc-base" class="nav-v">
 								<div class="unit-100">
 									<h1>
-										${postdetail.SUBJECT}
+										${post.SUBJECT}
 									</h1>
 									<p>
-										${postdetail.CONTENT}
+										${post.CONTENT}
 									</p>
 								</div>
 							</div>
@@ -95,7 +95,7 @@ table.width-100.table-simple.table-stroked thead tr th{
 			</table>
 			<div id="units-container" align="right">
 				<a href="/modules/board/postList.do?client_page=${client_page}&board_type=${board_type}" class="label label-blue" style="font-size: 15px;">목록</a>
-				<a href="/modules/board/postUpdateViewer.do?client_page=${client_page}&board_type=${board_type}&post_id=${postdetail.POST_ID}" class="label label-blue" style="font-size: 15px;">수정</a>
+				<a href="/modules/board/postUpdateViewer.do?client_page=${client_page}&board_type=${board_type}&post_id=${post.POST_ID}" class="label label-blue" style="font-size: 15px;">수정</a>
 				<a href="/modules/board/postWriter.do?client_page=${client_page}&board_type=${board_type}" class="label label-blue" style="font-size: 15px;">글쓰기</a>
 			</div>
 		</div>

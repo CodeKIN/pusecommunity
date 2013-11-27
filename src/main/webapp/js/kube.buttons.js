@@ -4,9 +4,18 @@
 */
 
 !function ($) {
-
 	"use strict";
 
+	$(document).keydown(function(event){
+		if (event.keyCode == 116) {
+			event.keyCode = 505;
+		}
+		if (event.keyCode == 505) {
+			location.reload();
+			return false;
+		}
+	});
+	
 	// Plugin
 	$.fn.buttons = function(option)
 	{

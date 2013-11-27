@@ -17,7 +17,7 @@ public class BoardService extends CommonService{
 	private BoardDao boardDao;
 	
 	//viewPostCnt
-	private final static int pageCnt      = 10;
+	private final static int pageCnt      = 15;
 	//viewPageCnt
 	private final static int pageGrp      = 10;
 

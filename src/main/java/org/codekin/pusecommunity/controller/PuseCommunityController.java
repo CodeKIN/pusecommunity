@@ -13,9 +13,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PuseCommunityController {
 	private static final Logger logger = LoggerFactory.getLogger(PuseCommunityController.class);
 
+	/**
+	 * welcome page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Locale locale, Model model) {
+		return "index";
+	}
 
+	/**
+	 * market page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/market/marketIndex", method = RequestMethod.GET)
-	public String postList(Locale locale, Model model) {
+	public String marketIndex(Locale locale, Model model) {
 		return "market/marketIndex";
+	}
+
+	/**
+	 * contectus page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/contectus/contectusIndex", method = RequestMethod.GET)
+	public String contectusIndex(Locale locale, Model model) {
+		return "contectus/contectusIndex";
 	}
 }

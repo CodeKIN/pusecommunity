@@ -33,6 +33,7 @@
 
 	<!-- 인터셉터에 매핑될 컨트롤러 -->
 	<bean id="puseCommunityController" class="org.codekin.pusecommunity.controller.PuseCommunityController" />
+	
 	<!-- 인터셉터에 매핑될 컨트롤러 -->
 	<bean id="boardController" class="org.codekin.modules.board.controller.BoardController" />
 
@@ -51,7 +52,9 @@
 		</property>
 		<property name="mappings">
 			<props>
-				<prop key="*">puseCommunityController</prop>
+				<prop key="/*.do">puseCommunityController</prop>
+				<prop key="/market/*.do">puseCommunityController</prop>
+				<prop key="/contectus/*.do">puseCommunityController</prop>
 				<prop key="/modules/board/*.do">boardController</prop>
 			</props>
 		</property>

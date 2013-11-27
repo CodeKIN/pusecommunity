@@ -31,8 +31,8 @@
 		   END AS SUBJECT
 		 , '1' AS REPLY_SEQ
 		 , LIKE_COUNT
-		 , VIEW_COUNT
 		 , WRITER_ID
+		 , WRITE_DT
 	  FROM BOARD
 	  ORDER BY POST_ID DESC
 	  LIMIT #startrow#, #endrow#

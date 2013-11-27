@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
@@ -40,10 +41,16 @@ table tbody tr td{
 	color: black;
 	font-weight: normal;
 	vertical-align: middle;
+	margin-top: 0;
+	padding-top: 0;
 }
 table thead tr:HOVER,
 table tbody tr:HOVER{
 	background-color: #ffdab9;
+}
+
+table tbody tr{
+	background-color: #ffffff;
 }
 </style>
 </head>
@@ -61,39 +68,45 @@ table tbody tr:HOVER{
 				<thead class="title">
 					<tr>
 						<th width="10%">번호</th>
-						<th width="70%">제목</th>
+						<th width="60%">제목</th>
 						<th width="10%">글쓴이</th>
 						<th width="5%">추천</th>
-						<th width="5%">조회</th>
+						<th width="15%">날짜</th>
 					</tr>
 				</thead>
-				<c:forEach var="row" items="${freeboard}" varStatus="c">
+				<c:forEach var="row" items="${board}" varStatus="c">
 					<c:choose>
 						<c:when test="${c.count % 2 eq 0}">
 							<thead>
 								<tr>
-									<td>${row.POST_ID}</td>
-									<td>
+									<td class="textcenter11">${row.POST_ID}</td>
+									<td class="subject">
 										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
 									</td>
-									<td>${row.WRITER_ID}</td>
-									<td>${row.LIKE_COUNT}</td>
-									<td>${row.VIEW_COUNT}</td>
+									<td class="textcenter11">${row.WRITER_ID}</td>
+									<td class="textcenter11">${row.LIKE_COUNT}</td>
+									<td class="textcenter11">										
+										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
+									</td>
 								</tr>
 							</thead>
 						</c:when>
 						<c:otherwise>
-							<thead>
+							<tbody>
 								<tr>
-									<th>${row.POST_ID}</th>
-									<th>
+									<th class="textcenter11">${row.POST_ID}</th>
+									<th class="subject">
 										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
 									</th>
-									<th>${row.WRITER_ID}</th>
-									<th>${row.LIKE_COUNT}</th>
-									<th>${row.VIEW_COUNT}</th>
+									<th class="textcenter11">${row.WRITER_ID}</th>
+									<th class="textcenter11">${row.LIKE_COUNT}</th>
+									<th class="textcenter11">
+										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
+									</th>
 								</tr>
-							</thead>
+							</tbody>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

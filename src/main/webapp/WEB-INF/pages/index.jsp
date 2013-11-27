@@ -7,38 +7,61 @@
 <head>
 <title>Title</title>
 
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/kube.min.css" />
-<link rel="stylesheet" type="text/css" href="css/master.css" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/kube.css"></c:url>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value="/css/master.css"></c:url>" />
 
-<script src="http://code.jquery.com/jquery.min.js"></script>
-
+<script src="<c:url value="/js/jquery-1.10.2.js"></c:url>"></script>
+<script src="<c:url value="/js/kube.buttons.js"></c:url>"></script>
+<script src="<c:url value="/js/common.js"></c:url>"></script>
+<script src="<c:url value="/js/init.js"></c:url>"></script>
 </head>
-<body>
-	<div class="units-container">
-		<div class="message">
-			<span class="close"></span>
-			<header>Header</header>
-			Attention, this is message!
-		</div>
-		<div class="message message-error">
-			<span class="close"></span> Warning, this is message!
-		</div>
-		<div class="message message-success">
-			<span class="close"></span> So good, this is message!
-		</div>
-		<div class="message message-info">
-			<span class="close"></span> Yhaam, this is info!
+<body style>
+	<div class="wrapper">
+		<!-- Header -->
+		<%@include file="/WEB-INF/pages/include/header.html"%>
+		<!-- Header -->
+
+		<div id="promo">
+			<img src="/images/love.jpg" alt="demopromo" height="300">
 		</div>
 
-
-
-		<figure class="image-left">
-			<img src="/img/image.jpg" alt="" width="200" />
-			<figcaption>Figcaption here...</figcaption>
-		</figure>
-
+		<ul id="intro" class="blocks-4">
+			<li class="unit-padding">
+				<h3>공지사항</h3>
+				<h4 class="subheader">퓨즈는 왱알앵알</h4>
+				<p>어서오세요! :D 퓨즈는 여러분을 환영합니다!</p> <a href="#">바로 가기</a>
+			</li>
+			<li class="unit-padding">
+				<h3>커뮤니티</h3>
+				<h4 class="subheader">자유게시판 최신글</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat.</p>
+					<a href="#freeboard">바로 가기</a>
+			</li>
+			<li class="unit-padding">
+				<h3>중고장터</h3>
+				<h4 class="subheader">중고장터 Hot Place</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat.</p> <a href="#">바로 가기</a>
+			</li>
+			<li class="unit-padding">
+				<h3>중고장터</h3>
+				<h4 class="subheader">중고장터 Hot Place</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat.</p> <a href="#">바로 가기</a>
+			</li>
+		</ul>
 	</div>
 </body>
 </html>

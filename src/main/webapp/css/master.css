@@ -23,11 +23,6 @@ img,
 
 /* =Layout
 -----------------------------------------------------------------------------*/
-/* .wrapper { */
-/* 	margin: auto; */
-/* 	max-width: 1280px; */
-/* 	padding: 36px 10px; */
-/* } */
 .wrapper {
 	padding: 0 10px;
 	width: 94%;
@@ -51,6 +46,16 @@ thead, tbody{
 	color: #ccc;
 }
 
+th.textcenter11,
+td.textcenter11{
+	font-size: 11px;
+	text-align: center;
+}
+
+th.subject,
+td.subject{
+	font-size: 11px;
+}
 
 /* =Header
 -----------------------------------------------------------------------------*/
