@@ -33,7 +33,7 @@ public class BoardService extends CommonService{
 
 	public String getBoardType() {
 		HttpServletRequest request = this.getRequest();
-
+		
 		return request.getParameter("board_type")  != null ? request.getParameter("board_type").toString() : "";
 	}
 	/* ***********************************************
@@ -150,11 +150,29 @@ public class BoardService extends CommonService{
 		return request.getParameter("post_id");
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	/* ***************************************
+	 * external system interface             *
+	 * ***************************************/
+	
 	public List<?> selectRecentPostList() {
 		Map<String, Object> param = new HashMap<String, Object>();
+		Map<String, Object> result = new HashMap<String, Object>();
 		
 		param.put("max_length", Integer.parseInt(systemProperties.get("board.recent.post.length").toString()));
 		
 		return boardDao.selectRecentPostList(systemProperties.get("board.recent.post.type").toString(), param);
 	}
+
+	/* ***************************************
+	 * external system interface             *
+	 * ***************************************/
 }

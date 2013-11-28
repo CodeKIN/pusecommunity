@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,7 @@
 							<thead>
 								<tr>
 									<td class="subject">
-										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
+										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
 									</td>
 									<td class="textcenter11">${row.WRITER_ID}</td>
 									<td class="textcenter11">										
@@ -50,7 +51,7 @@
 							<tbody>
 								<tr>
 									<th class="subject">
-										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
+										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
 									</th>
 									<th class="textcenter11">${row.WRITER_ID}</th>
 									<th class="textcenter11">
@@ -63,8 +64,6 @@
 					</c:choose>
 				</c:forEach>
 			</table>
-			${recentpostlist}
-			
 		</li>
 		
 		<li class="unit-padding">

@@ -13,24 +13,32 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 @Service
 public class CommunityService extends CommonService{
-	public List<Map<String, Object>> selectRecentPostList(Locale locale, Model model){
-		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+	private Object getBeanInstance(Class psTargetClass){
 		WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(this.getSession(false).getServletContext());
 		
-		String vsBeanNames[] = webApplicationContext.getBeanNamesForType(BoardService.class);
+		String vsBeanNames[] = webApplicationContext.getBeanNamesForType(psTargetClass);
 		
-		Object beanInstance = webApplicationContext.getBean(vsBeanNames[0]);
-
-		if (beanInstance != null) {
-			Class beanClass = beanInstance.getClass();
+		return webApplicationContext.getBean(vsBeanNames[0]);
+	}
+	
+	private Object getBeanResult(Object poBeanInstance, String psTargetMethod, Class...classes)throws Exception{
+		Class beanClass = poBeanInstance.getClass();
+		
 			
-			try {
-				result = (List<Map<String, Object>>) beanClass.getDeclaredMethod("selectRecentPostList").invoke(beanInstance);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
+		return beanClass.getDeclaredMethod(psTargetMethod, classes).invoke(poBeanInstance);
+	}
+	
+	public List<Map<String, Object>> selectRecentPostList(Locale locale, Model model) throws Exception{
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		
-		return result;
+		return (List<Map<String, Object>>) this.getBeanResult(this.getBeanInstance(BoardService.class), "selectRecentPostList");
+	}
+
+	public Object getClientPage() throws Exception {
+		return this.getBeanResult(this.getBeanInstance(BoardService.class), "getClientPage");
+	}
+
+	public Object getBoardType() throws Exception {
+		return this.getBeanResult(this.getBeanInstance(BoardService.class), "getBoardType");
 	}
 }

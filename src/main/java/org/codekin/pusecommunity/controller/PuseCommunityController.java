@@ -31,10 +31,13 @@ public class PuseCommunityController {
 	 * @param locale
 	 * @param model
 	 * @return
+	 * @throws Exception 
 	 */
 	@RequestMapping(value = "/community/communityIndex", method = RequestMethod.GET)
-	public String communityIndex(Locale locale, Model model) {
+	public String communityIndex(Locale locale, Model model) throws Exception {
 		model.addAttribute("recentpostlist", communityService.selectRecentPostList(locale, model));
+		model.addAttribute("client_page"   , communityService.getClientPage());
+		model.addAttribute("board_type"    , communityService.getBoardType());
 		
 		return "community/communityIndex";
 	}
