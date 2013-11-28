@@ -16,10 +16,9 @@ public class BoardService extends CommonService{
 	@Autowired
 	private BoardDao boardDao;
 	
-	//viewPostCnt
-	private final static int pageCnt      = 15;
-	//viewPageCnt
-	private final static int pageGrp      = 10;
+
+	
+	
 	
 	
 	/* ***********************************************
@@ -59,6 +58,9 @@ public class BoardService extends CommonService{
 		int totCnt       = 0;
 		int totPage      = 0;
 		int currentPage  = request.getParameter("client_page") != null ? Integer.parseInt(request.getParameter("client_page").toString()) : 1;
+		
+		int pageGrp      = Integer.parseInt(systemProperties.get("board.post.list.group.length").toString());
+		int pageCnt      = Integer.parseInt(systemProperties.get("board.post.list.length").toString());
 		int startPageNum = currentPage % pageGrp == 0 ? (currentPage / pageGrp - 1) * pageGrp + 1 : (currentPage / pageGrp) * pageGrp + 1;
 		int endPageNum   = startPageNum + pageGrp - 1;
 		int startRow     = currentPage * pageCnt - pageCnt;
@@ -167,7 +169,7 @@ public class BoardService extends CommonService{
 		Map<String, Object> param = new HashMap<String, Object>();
 		Map<String, Object> result = new HashMap<String, Object>();
 		
-		param.put("max_length", Integer.parseInt(systemProperties.get("board.recent.post.length").toString()));
+		param.put("max_length", Integer.parseInt(systemProperties.get("board.recent.post.list.length").toString()));
 		
 		return boardDao.selectRecentPostList(systemProperties.get("board.recent.post.type").toString(), param);
 	}

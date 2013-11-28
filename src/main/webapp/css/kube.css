@@ -2120,6 +2120,7 @@ select.unit-100 {
 }
 /* =Blocks
 -----------------------------------------------------------------------------*/
+.blocks-1,
 .blocks-2,
 .blocks-3,
 .blocks-4,
@@ -2132,6 +2133,7 @@ select.unit-100 {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.blocks-1:after,
 .blocks-2:after,
 .blocks-3:after,
 .blocks-4:after,
@@ -2143,6 +2145,8 @@ select.unit-100 {
   clear: both;
   visibility: hidden;
 }
+
+.blocks-1 > li,
 .blocks-2 > li,
 .blocks-3 > li,
 .blocks-4 > li,
@@ -2156,6 +2160,11 @@ select.unit-100 {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.blocks-1 > li{
+	width: 97%;
+}
+
 .blocks-2 > li {
   width: 47%;
 }

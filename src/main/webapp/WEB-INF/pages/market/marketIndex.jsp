@@ -5,24 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>중고시장</title>
+<title></title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/kube.css"></c:url>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/master.css"></c:url>" />
+<!-- scripts, styles, meta tags, title tag -->
+<%@include file="/WEB-INF/pages/include/import.jsp" %>
+<!-- scripts, styles, meta tags, title tag -->
 
-<script src="<c:url value="/js/jquery-1.10.2.js"></c:url>"></script>
-<script src="<c:url value="/js/kube.buttons.js"></c:url>"></script>
-<script src="<c:url value="/js/common.js"></c:url>"></script>
-<script src="<c:url value="/js/init.js"></c:url>"></script>
 </head>
 <body style>
 	<div class="wrapper">
 	<!-- Header -->
-	<%@include file="/WEB-INF/pages/include/header.html" %>
+	<%@include file="/WEB-INF/pages/include/header.jsp" %>
 	<!-- Header -->
 	
 		<ul id="intro" class="blocks-6">
@@ -275,5 +268,9 @@
 			</li>
 		</ul>
 	</div>
+	
+	<!-- footer -->
+		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+	<!-- footer -->
 </body>
 </html>

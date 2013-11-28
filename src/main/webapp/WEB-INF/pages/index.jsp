@@ -5,25 +5,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title</title>
+<title></title>
+<!-- scripts, styles, meta tags -->
+<%@include file="/WEB-INF/pages/include/import.jsp" %>
+<!-- scripts, styles, meta tags -->
 
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/kube.css"></c:url>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/master.css"></c:url>" />
-
-<script src="<c:url value="/js/jquery-1.10.2.js"></c:url>"></script>
-<script src="<c:url value="/js/kube.buttons.js"></c:url>"></script>
-<script src="<c:url value="/js/common.js"></c:url>"></script>
 <script src="<c:url value="/js/init.js"></c:url>"></script>
+
 </head>
 <body style>
 	<div class="wrapper">
 		<!-- Header -->
-		<%@include file="/WEB-INF/pages/include/header.html"%>
+		<%@include file="/WEB-INF/pages/include/header.jsp"%>
 		<!-- Header -->
 
 		<div id="promo">
@@ -63,5 +56,31 @@
 			</li>
 		</ul>
 	</div>
+	
+	
+	<!-- param test -->
+		<jsp:include page="/WEB-INF/pages/include/param.jsp">
+			<jsp:param value="param1" name="includeParam1"/>
+			<jsp:param value="param2" name="includeParam2"/>
+			<jsp:param value="param3" name="includeParam3"/>
+			<jsp:param value="param4" name="includeParam4"/>
+		</jsp:include>
+	<!-- param test -->
+	
+	<!-- mainbox -->
+		<%@include file="/WEB-INF/pages/include/mainbox.jsp" %>
+	<!-- mainbox -->
+	
+	<!-- submain -->
+		<%@include file="/WEB-INF/pages/include/outer.jsp" %>
+	<!-- submain -->
+	
+	<!-- submain -->
+		<%@include file="/WEB-INF/pages/include/submain.jsp" %>
+	<!-- submain -->
+	
+	<!-- footer -->
+		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+	<!-- footer -->
 </body>
 </html>

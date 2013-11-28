@@ -6,324 +6,272 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>중고시장</title>
+<title></title>
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/kube.css"></c:url>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value="/css/master.css"></c:url>" />
+<!-- scripts, styles, meta tags, title tag -->
+<%@include file="/WEB-INF/pages/include/import.jsp" %>
+<!-- scripts, styles, meta tags, title tag -->
 
-<script src="<c:url value="/js/jquery-1.10.2.js"></c:url>"></script>
-<script src="<c:url value="/js/kube.buttons.js"></c:url>"></script>
-<script src="<c:url value="/js/common.js"></c:url>"></script>
-<script src="<c:url value="/js/init.js"></c:url>"></script>
+<style type="text/css">
+table thead.title tr th{
+	color: black;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
+}
+
+table thead tr th,
+table tbody tr td{
+	color: black;
+	font-weight: normal;
+	vertical-align: middle;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+table thead tr:HOVER,
+table tbody tr:HOVER{
+	background-color: #ffdab9;
+}
+
+
+
+</style>
 </head>
 <body style>
 	<div class="wrapper">
 	<!-- Header -->
-	<%@include file="/WEB-INF/pages/include/header.html" %>
+	<%@include file="/WEB-INF/pages/include/header.jsp" %>
 	<!-- Header -->
-	<ul id="intro" class="blocks-2">
-		<li class="unit-padding">
-			<h3>자유게시판</h3>
-			<h4 class="subheader">최신글목록</h4>
-			
-			<table class="width-100 table-striped">
-				<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-					<c:choose>
-						<c:when test="${c.count % 2 eq 0}">
-							<thead>
-								<tr>
-									<td class="subject">
-										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-									</td>
-									<td class="textcenter11">${row.WRITER_ID}</td>
-									<td class="textcenter11">										
-										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
-									</td>
-								</tr>
-							</thead>
-						</c:when>
-						<c:otherwise>
-							<tbody>
-								<tr>
-									<th class="subject">
-										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-									</th>
-									<th class="textcenter11">${row.WRITER_ID}</th>
-									<th class="textcenter11">
-										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
-									</th>
-								</tr>
-							</tbody>
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-			</table>
-		</li>
-		
-		<li class="unit-padding">
-			<h3>유머게시판</h3>
-			<h4 class="subheader">최신글목록</h4>
-			
-			
-		</li>
-	</ul>	
 	
-	
-		<ul id="intro" class="blocks-6">
+		<ul id="intro" class="blocks-1">
 			<li class="unit-padding">
-				<h3>Hot 아이템!</h3>
-				<h4 class="subheader">GT들의 추천</h4>
-				
-				<div class="image-container">
-				    <figure class="image-left">
-				        <img src="/images/north.jpg" alt="" width="100%" />
-				        <figcaption>갈수록 추워지는 겨울, 월동준비 철저하게해서 장인,장모,부모,여친 모두 휘어잡기!</figcaption>
-				    </figure>
-				    <p>
-				    	여보, 올겨울엔 아버님께 빨간패딩 하나 장만해드려야겠어요.
-				    </p>
-				</div>
-								
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			
-			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			<li class="unit-padding">
-				<h3>Hot 아이템!</h3>
-				<h4 class="subheader">GT들의 추천</h4>
-				
-				<div class="image-container">
-				    <figure class="image-left">
-				        <img src="/images/north.jpg" alt="" width="100%" />
-				        <figcaption>갈수록 추워지는 겨울, 월동준비 철저하게해서 장인,장모,부모,여친 모두 휘어잡기!</figcaption>
-				    </figure>
-				    <p>
-				    	여보, 올겨울엔 아버님께 빨간패딩 하나 장만해드려야겠어요.
-				    </p>
-				</div>
-								
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			
-			
-			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
+				<h3>명예의전당</h3>
+				<h4 class="subheader">대단하십니다. 乃</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
 			</li>
 		</ul>
 		
-		<ul id="intro" class="blocks-4">
+		<ul id="intro" class="blocks-2">
 			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
+				<h3>자유게시판</h3>
+				<h4 class="subheader">궁시렁궁시렁 주절주절</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
 			</li>
-			
-			
 			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>Hot 아이템!</h3>
-				<h4 class="subheader">GT들의 추천</h4>
-				
-				<div class="image-container">
-				    <figure class="image-left">
-				        <img src="/images/north.jpg" alt="" width="100%" />
-				        <figcaption>갈수록 추워지는 겨울, 월동준비 철저하게해서 장인,장모,부모,여친 모두 휘어잡기!</figcaption>
-				    </figure>
-				    <p>
-				    	여보, 올겨울엔 아버님께 빨간패딩 하나 장만해드려야겠어요.
-				    </p>
-				</div>
-				<a href="#">바로 가기</a>
+				<h3>개드립</h3>
+				<h4 class="subheader">[개조심] 왈왈! 멍멍~!! 으르르르르르</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
 			</li>
 		</ul>
-	
+		
 		<ul id="intro" class="blocks-3">
 			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			
-			
-			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>Hot 아이템!</h3>
-				<h4 class="subheader">GT들의 추천</h4>
-				
-				<div class="image-container">
-				    <figure class="image-left">
-				        <img src="/images/north.jpg" alt="" width="100%" />
-				        <figcaption>갈수록 추워지는 겨울, 월동준비 철저하게해서 장인,장모,부모,여친 모두 휘어잡기!</figcaption>
-				    </figure>
-				    <p>
-				    	여보, 올겨울엔 아버님께 빨간패딩 하나 장만해드려야겠어요.
-				    </p>
-				</div>
-				<a href="#">바로 가기</a>
-			</li>
-		</ul>
-		
-		<ul id="intro" class="blocks-5">
-			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			
-			
-			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>올겨울은 추워뒈지지 <br />
-				가만있음 넌 그냥 돼지지</h3>
-				<h4 class="subheader">돼지가된 당신을 깎아줄 초강력 트레이너</h4>
-				<figure class="image-left">
-					<img src="/images/health.jpg" alt="" width="100%" />
-					<figcaption>그대여 무엇을 망설이는가. 딥 다크 팬터지를 통해 너의 몸을 깎아주겠노라</figcaption>
-				</figure>
-				<a href="#freeboard">바로 가기</a>
-			</li>
-			
-			<li class="unit-padding">
-				<h3>Hot 아이템!</h3>
-				<h4 class="subheader">GT들의 추천</h4>
-				
-				<div class="image-container">
-				    <figure class="image-left">
-				        <img src="/images/north.jpg" alt="" width="100%" />
-				        <figcaption>갈수록 추워지는 겨울, 월동준비 철저하게해서 장인,장모,부모,여친 모두 휘어잡기!</figcaption>
-				    </figure>
-				    <p>
-				    	여보, 올겨울엔 아버님께 빨간패딩 하나 장만해드려야겠어요.
-				    </p>
-				</div>
-				<a href="#">바로 가기</a>
+				<h3>연애게시판</h3>
+				<h4 class="subheader">솔직담백 연애이야기 <3</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
 			</li>
 			<li class="unit-padding">
-				<h3>중고 시장</h3>
-				<h4 class="subheader">중고장터 Hot Place</h4>
-				
-				
-				<figure class="image-centered">
-					<img src="/images/ang.jpg" alt="" width="100%" />
-					<figcaption>쓰다남은 빌리 버리지 말고 팔자!</figcaption>
-				</figure>
-				
-				<a href="#">바로 가기</a>
+				<h3>질문게시판</h3>
+				<h4 class="subheader">? 궁금해요~</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
+			</li>
+			<li class="unit-padding">
+				<h3>명예의전당</h3>
+				<h4 class="subheader">대단하십니다. 乃</h4>
+				<table class="width-100 table-striped">
+					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+						<c:choose>
+							<c:when test="${c.count % 2 eq 0}">
+								<thead>
+									<tr>
+										<td class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</td>
+										<td class="textcenter11">${row.WRITER_ID}</td>
+										<td class="textcenter11 dateshort">										
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</td>
+									</tr>
+								</thead>
+							</c:when>
+							<c:otherwise>
+								<tbody>
+									<tr>
+										<th class="subject">
+											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
+										</th>
+										<th class="textcenter11">${row.WRITER_ID}</th>
+										<th class="textcenter11 dateshort">
+											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										</th>
+									</tr>
+								</tbody>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</table>
 			</li>
 		</ul>
 	</div>
+	
+	<!-- footer -->
+		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+	<!-- footer -->
 </body>
 </html>

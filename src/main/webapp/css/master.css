@@ -57,6 +57,11 @@ td.subject{
 	font-size: 11px;
 }
 
+th.dateshort,
+td.dateshort{
+	width: 50px;
+}
+
 /* =Header
 -----------------------------------------------------------------------------*/
 #header {
