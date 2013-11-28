@@ -15,4 +15,9 @@
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-</beans> 
+	
+	
+	<bean id="systemProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
+    	<property name="location" value="/WEB-INF/classes/pusecommunity/system.properties"/>
+	</bean>                                              
+</beans>

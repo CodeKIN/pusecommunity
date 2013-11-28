@@ -24,6 +24,57 @@
 	<!-- Header -->
 	<%@include file="/WEB-INF/pages/include/header.html" %>
 	<!-- Header -->
+	<ul id="intro" class="blocks-2">
+		<li class="unit-padding">
+			<h3>자유게시판</h3>
+			<h4 class="subheader">최신글목록</h4>
+			
+			<table class="width-100 table-striped">
+				<c:forEach var="row" items="${recentpostlist}" varStatus="c">
+					<c:choose>
+						<c:when test="${c.count % 2 eq 0}">
+							<thead>
+								<tr>
+									<td class="subject">
+										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
+									</td>
+									<td class="textcenter11">${row.WRITER_ID}</td>
+									<td class="textcenter11">										
+										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
+									</td>
+								</tr>
+							</thead>
+						</c:when>
+						<c:otherwise>
+							<tbody>
+								<tr>
+									<th class="subject">
+										<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=${board_type}&client_page=${client_page}">${row.SUBJECT}</a>
+									</th>
+									<th class="textcenter11">${row.WRITER_ID}</th>
+									<th class="textcenter11">
+										<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
+										<fmt:formatDate value="${row.WRITE_DT}" type="TIME" timeStyle="SHORT" />
+									</th>
+								</tr>
+							</tbody>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+			</table>
+			${recentpostlist}
+			
+		</li>
+		
+		<li class="unit-padding">
+			<h3>유머게시판</h3>
+			<h4 class="subheader">최신글목록</h4>
+			
+			
+		</li>
+	</ul>	
+	
 	
 		<ul id="intro" class="blocks-6">
 			<li class="unit-padding">

@@ -11,12 +11,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +28,9 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 public class CommonService {
 
+	@Autowired
+	protected Properties systemProperties;
+	
 	// 로거
 	protected Logger logger = Logger.getLogger(this.getClass());
 
@@ -241,5 +247,9 @@ public class CommonService {
 
 	protected MultipartHttpServletRequest getMultipartHttpServletRequest(HttpServletRequest request){
 		return (MultipartHttpServletRequest) request;
+	}
+	
+	protected HttpSession getSession(boolean pbCreate){
+		return this.getRequest().getSession(pbCreate);
 	}
 }

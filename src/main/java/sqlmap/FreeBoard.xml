@@ -3,7 +3,6 @@
 
 <sqlMap namespace="freeboard">
 	<typeAlias alias="freeBoard" type="org.codekin.pusecommunity.model.FreeBoard" />
-
 	<insert id="savePost">
 	INSERT INTO BOARD(
 		   SUBJECT
@@ -36,6 +35,20 @@
 	  FROM BOARD
 	  ORDER BY POST_ID DESC
 	  LIMIT #startrow#, #endrow#
+	</select>
+	
+	<select id="selectRecentPostList" resultClass="freeBoard">
+	SELECT POST_ID
+	     , CASE 
+		     WHEN LENGTH(SUBJECT) > 40
+		     THEN CONCAT(SUBSTR(SUBJECT, 1, 30), '...') 
+		     ELSE SUBJECT
+		   END AS SUBJECT
+		 , WRITER_ID
+		 , WRITE_DT
+	  FROM BOARD
+	  ORDER BY POST_ID DESC
+	  LIMIT 0, #max_length#
 	</select>
 	
 	<delete id="deletePost">

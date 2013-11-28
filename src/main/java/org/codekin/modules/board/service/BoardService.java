@@ -1,12 +1,12 @@
 package org.codekin.modules.board.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.codekin.modules.board.dao.BoardDao;
-import org.codekin.pusecommunity.model.FreeBoard;
 import org.codekin.pusecommunity.service.CommonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,39 @@ public class BoardService extends CommonService{
 	private final static int pageCnt      = 15;
 	//viewPageCnt
 	private final static int pageGrp      = 10;
+	
+	
+	/* ***********************************************
+	 * public board system API                       *
+	 * ***********************************************/
+	public String getClientPage() {
+		HttpServletRequest request = this.getRequest();
 
+		return request.getParameter("client_page") != null ? request.getParameter("client_page").toString() : "1";
+	}
+
+	public String getBoardType() {
+		HttpServletRequest request = this.getRequest();
+
+		return request.getParameter("board_type")  != null ? request.getParameter("board_type").toString() : "";
+	}
+	/* ***********************************************
+	 * public board system API                       *
+	 * ***********************************************/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public Map<String, Object> selectPostList() {
 		HttpServletRequest request = this.getRequest();
 
@@ -42,7 +74,7 @@ public class BoardService extends CommonService{
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("startrow", startRow);
 		param.put("endrow", endRow);
-		result.put("boardList", boardDao.selectPostList(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param));
+		result.put("boardList", boardDao.selectPostList(this.getBoardType(), param));
 
 		/* ****************************
 		 * select boardList
@@ -53,7 +85,7 @@ public class BoardService extends CommonService{
 		 * create pagingInfo
 		 * ****************************/
 		
-		totCnt = boardDao.selectTotalPostCount(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "");
+		totCnt = boardDao.selectTotalPostCount(this.getBoardType());
 		
 		totPage = totCnt / pageCnt + (totCnt % pageCnt == 0 ? 0 : 1);
 		
@@ -73,7 +105,7 @@ public class BoardService extends CommonService{
 		 * create pagingInfo
 		 * ****************************/
 		
-		result.put("board_type", request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "");
+		result.put("board_type", this.getBoardType());
 		
 		return result;
 	}
@@ -86,16 +118,16 @@ public class BoardService extends CommonService{
 		
 		param.put("writer_id", request.getSession(false).getAttribute("USER_ID"));
 		
-		boardDao.savePost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
+		boardDao.savePost(this.getBoardType(), param);
 	}
 
-	public FreeBoard selectPost() {
+	public Object selectPost() {
 		HttpServletRequest request = this.getRequest();
 		String[] keys = {"post_id"};
 		
 		Map<String, Object> param = this.getParamMap(keys, request);
 		
-		return boardDao.selectPost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
+		return boardDao.selectPost(this.getBoardType(), param);
 	}
 
 	public String updatePost() {
@@ -107,8 +139,8 @@ public class BoardService extends CommonService{
 		 * checking writer and requester         *
 		 * ***************************************/
 		
-		if(boardDao.selectPostWriterId(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param).equals(request.getSession(false).getAttribute("USER_ID"))){
-			boardDao.updatePost(request.getParameter("board_type") != null ? request.getParameter("board_type").toString() : "", param);
+		if(boardDao.selectPostWriterId(this.getBoardType(), param).equals(request.getSession(false).getAttribute("USER_ID"))){
+			boardDao.updatePost(this.getBoardType(), param);
 		}
 		
 		/* ***************************************
@@ -117,16 +149,12 @@ public class BoardService extends CommonService{
 
 		return request.getParameter("post_id");
 	}
-
-	public String getClientPage() {
-		HttpServletRequest request = this.getRequest();
-
-		return request.getParameter("client_page") != null ? request.getParameter("client_page").toString() : "1";
-	}
-
-	public String getBoardType() {
-		HttpServletRequest request = this.getRequest();
-
-		return request.getParameter("board_type")  != null ? request.getParameter("board_type").toString() : "";
+	
+	public List<?> selectRecentPostList() {
+		Map<String, Object> param = new HashMap<String, Object>();
+		
+		param.put("max_length", Integer.parseInt(systemProperties.get("board.recent.post.length").toString()));
+		
+		return boardDao.selectRecentPostList(systemProperties.get("board.recent.post.type").toString(), param);
 	}
 }

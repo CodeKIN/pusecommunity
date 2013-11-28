@@ -2,8 +2,8 @@ package org.codekin.pusecommunity.controller;
 
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.codekin.pusecommunity.service.CommunityService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PuseCommunityController {
-	private static final Logger logger = LoggerFactory.getLogger(PuseCommunityController.class);
-
+	@Autowired
+	private CommunityService communityService;
+	
 	/**
 	 * welcome page
 	 * @param locale
@@ -24,6 +25,20 @@ public class PuseCommunityController {
 		return "index";
 	}
 
+	
+	/**
+	 * community page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/community/communityIndex", method = RequestMethod.GET)
+	public String communityIndex(Locale locale, Model model) {
+		model.addAttribute("recentpostlist", communityService.selectRecentPostList(locale, model));
+		
+		return "community/communityIndex";
+	}
+	
 	/**
 	 * market page
 	 * @param locale
