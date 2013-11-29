@@ -10,7 +10,7 @@
 			<a href="#">더 읽기</a>
 		</li>
 		<li class="unit-padding">
-			<h3>${param.title1}</h3>
+			<h3>${param.title2}</h3>
 			<h4 class="subheader">${param.subtitle2}</h4>
 			<p>${param.content2}</p>
 			<a href="#">더 읽기</a>

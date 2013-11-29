@@ -4,7 +4,7 @@
 <sqlMap namespace="freeboard">
 	<typeAlias alias="freeBoard" type="org.codekin.pusecommunity.model.FreeBoard" />
 	<insert id="savePost">
-	INSERT INTO BOARD(
+	INSERT INTO board(
 		   SUBJECT
 	     , CONTENT
 		 , LIKE_COUNT
@@ -32,7 +32,7 @@
 		 , LIKE_COUNT
 		 , WRITER_ID
 		 , WRITE_DT
-	  FROM BOARD
+	  FROM board
 	  ORDER BY POST_ID DESC
 	  LIMIT #startrow#, #endrow#
 	</select>
@@ -46,20 +46,20 @@
 		   END AS SUBJECT
 		 , WRITER_ID
 		 , WRITE_DT
-	  FROM BOARD
+	  FROM board
 	  ORDER BY POST_ID DESC
 	  LIMIT 0, #max_length#
 	</select>
 	
 	<delete id="deletePost">
 	DELETE
-	  FROM BOARD
+	  FROM board
 	 WHERE 1 = 1
 	   AND POST_ID = #post_id#
 	</delete>
 	
 	<update id="updatePost">
-	UPDATE BOARD
+	UPDATE board
 	   SET SUBJECT = #subject#
 	     , CONTENT = #content#
 	 WHERE 1 = 1
@@ -68,7 +68,7 @@
 
 	<select id="selectPostWriterId" resultClass="java.lang.String">
 	SELECT WRITER_ID
-	  FROM BOARD
+	  FROM board
 	 WHERE 1 = 1
 	   AND POST_ID = #post_id#
 	</select>
@@ -82,13 +82,13 @@
 		 , VIEW_COUNT
 		 , WRITER_ID
 		 , WRITE_DT
-	  FROM BOARD
+	  FROM board
 	 WHERE 1 = 1
 	   AND POST_ID = #post_id#
 	</select>
 	
 	<select id="selectTotalPostCount" resultClass="java.lang.String">
 	SELECT COUNT(1)
-	  FROM BOARD
+	  FROM board
 	</select>
 </sqlMap>
