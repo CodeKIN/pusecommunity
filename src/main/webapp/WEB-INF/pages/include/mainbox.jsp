@@ -7,6 +7,10 @@
 	</div>
 
 	<ul id="intro" class="blocks-3">
+	</ul>
+	
+	
+	<ul id="intro" class="blocks-3">
 		<li class="unit-padding">
 			<h3>About Us</h3>
 			<h4 class="subheader">Some header subtitle</h4>

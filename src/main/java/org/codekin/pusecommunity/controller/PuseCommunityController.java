@@ -25,6 +25,17 @@ public class PuseCommunityController {
 		return "index";
 	}
 
+	/**
+	 * news page
+	 * @param locale
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/news/newsIndex", method = RequestMethod.GET)
+	public String newsIndex(Locale locale, Model model) throws Exception {
+		return "news/newsIndex";
+	}
 	
 	/**
 	 * community page
@@ -62,5 +73,16 @@ public class PuseCommunityController {
 	@RequestMapping(value = "/contectus/contectusIndex", method = RequestMethod.GET)
 	public String contectusIndex(Locale locale, Model model) {
 		return "contectus/contectusIndex";
+	}
+
+	/**
+	 * contectus page
+	 * @param locale
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/partners/partnersIndex", method = RequestMethod.GET)
+	public String partnersIndex(Locale locale, Model model) {
+		return "partners/partnersIndex";
 	}
 }

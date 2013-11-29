@@ -7,17 +7,17 @@
 <head>
 <title></title>
 
-<!-- scripts, styles, meta tags, title tag -->
-<%@include file="/WEB-INF/pages/include/import.jsp" %>
-<!-- scripts, styles, meta tags, title tag -->
+<!-- scripts, styles, meta tags -->
+	<jsp:include page="/WEB-INF/pages/include/import.jsp" flush="false"></jsp:include>
+<!-- scripts, styles, meta tags -->
 
 </head>
 <body style>
-	<div class="wrapper">
 	<!-- Header -->
-	<%@include file="/WEB-INF/pages/include/header.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
 	<!-- Header -->
 	
+	<div class="wrapper">
 		<ul id="intro" class="blocks-6">
 			<li class="unit-padding">
 				<h3>Hot 아이템!</h3>
@@ -270,7 +270,7 @@
 	</div>
 	
 	<!-- footer -->
-		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>
 	<!-- footer -->
 </body>
 </html>

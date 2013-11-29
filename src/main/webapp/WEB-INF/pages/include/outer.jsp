@@ -6,24 +6,24 @@
 		<div class="units-row">
 			<div class="unit-66">
 
-				<h2>Some Header</h2>
+				<h2>${param.title}</h2>
 
 				<article id="blocks">
 					<dl>
-						<dt><img src="/images/outer1.jpg" alt="" width="170" height="80"></dt>
-						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+						<dt><img src="${param.thumb1}" alt="" width="170" height="80"></dt>
+						<dd>${param.content1}</dd>
 					</dl>
 					<dl>
-						<dt><img src="/images/outer2.jpg" alt="" width="170" height="80"></dt>
-						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+						<dt><img src="${param.thumb2}" alt="" width="170" height="80"></dt>
+						<dd>${param.content2}</dd>
 					</dl>
 					<dl>
-						<dt><img src="/images/outer3.jpg" alt="" width="170" height="80"></dt>
-						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+						<dt><img src="${param.thumb3}" alt="" width="170" height="80"></dt>
+						<dd>${param.content3}</dd>
 					</dl>
 					<dl>
-						<dt><img src="/images/outer4.jpg" alt="" width="170" height="80"></dt>
-						<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</dd>
+						<dt><img src="${param.thumb4}" alt="" width="170" height="80"></dt>
+						<dd>${param.content4}</dd>
 					</dl>
 				</article>
 
@@ -44,7 +44,7 @@
 						<p><textarea class="width-100" style="height: 80px;"></textarea></p>
 						<input type="submit" value="Send" class="btn">
 					</form>
-					<small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small>
+					<small>${param.feedbackdesc}</small>
 				</div><!-- /end #feedback -->
 
 			</div>

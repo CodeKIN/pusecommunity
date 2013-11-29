@@ -53,9 +53,11 @@
 		<property name="mappings">
 			<props>
 				<prop key="/*.do">puseCommunityController</prop>
+				<prop key="/news/newsIndex.do">puseCommunityController</prop>
 				<prop key="/market/*.do">puseCommunityController</prop>
 				<prop key="/contectus/*.do">puseCommunityController</prop>
 				<prop key="/community/communityIndex.do">puseCommunityController</prop>
+				<prop key="/partners/partnersIndex.do">puseCommunityController</prop>
 				
 				<prop key="/modules/board/*.do">boardController</prop>
 			</props>
