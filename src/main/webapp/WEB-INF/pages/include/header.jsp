@@ -2,9 +2,15 @@
 
 <div class="wrapper">
 	<header id="header" class="group">
-		<h1>Puse &amp; Community <3</h1>
+		<h1>Puse &amp; Community</h1>
 		<nav class="nav-g">
 			<ul>
+				<li>
+					<span class="btn-group">
+				    	<input type="text" name="foo" class="input-search" style="width: 100px;">
+				    	<button class="btn btn-round" style="height: 24px;">검색</button>
+				    </span>
+				</li>
 				<li><a href="/">메인</a></li>
 				<li><a href="/news/newsIndex.do">뉴스</a></li>
 				<li><a href="/community/communityIndex.do">커뮤니티</a></li>

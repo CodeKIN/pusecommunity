@@ -18,7 +18,7 @@
     <!-- Local Apache Commons DBCP DataSource -->
     <bean id="defaultDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost/pusecommunity?useUnicod=true&amp;characterEncoding=utf8&amp;autoReconnect=true"/>
+        <property name="url" value="jdbc:mysql://14.63.214.51/pusecommunity?useUnicod=true&amp;characterEncoding=utf8&amp;autoReconnect=true"/>
         <property name="username" value="pusecommunity"/>
         <property name="password" value="#CodeKIN@216"/>
         <property name="maxActive" value="15" />

@@ -39,236 +39,26 @@ table tbody tr:HOVER{
 </style>
 </head>
 <body style>
-	<div class="wrapper">
+
 	<!-- Header -->
-	<%@include file="/WEB-INF/pages/include/header.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
 	<!-- Header -->
 	
-		<ul id="intro" class="blocks-1">
-			<li class="unit-padding">
-				<h3>명예의전당</h3>
-				<h4 class="subheader">대단하십니다. 乃</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-		</ul>
-		
-		<ul id="intro" class="blocks-2">
-			<li class="unit-padding">
-				<h3>자유게시판</h3>
-				<h4 class="subheader">궁시렁궁시렁 주절주절</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-			<li class="unit-padding">
-				<h3>개드립</h3>
-				<h4 class="subheader">[개조심] 왈왈! 멍멍~!! 으르르르르르</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-		</ul>
-		
-		<ul id="intro" class="blocks-3">
-			<li class="unit-padding">
-				<h3>연애게시판</h3>
-				<h4 class="subheader">솔직담백 연애이야기 <3</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-			<li class="unit-padding">
-				<h3>질문게시판</h3>
-				<h4 class="subheader">? 궁금해요~</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-			<li class="unit-padding">
-				<h3>명예의전당</h3>
-				<h4 class="subheader">대단하십니다. 乃</h4>
-				<table class="width-100 table-striped">
-					<c:forEach var="row" items="${recentpostlist}" varStatus="c">
-						<c:choose>
-							<c:when test="${c.count % 2 eq 0}">
-								<thead>
-									<tr>
-										<td class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</td>
-										<td class="textcenter11">${row.WRITER_ID}</td>
-										<td class="textcenter11 dateshort">										
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</td>
-									</tr>
-								</thead>
-							</c:when>
-							<c:otherwise>
-								<tbody>
-									<tr>
-										<th class="subject">
-											<a href="/modules/board/postViewer.do?post_id=${row.POST_ID}&board_type=freeboard&client_page=${client_page}">${row.SUBJECT}</a>
-										</th>
-										<th class="textcenter11">${row.WRITER_ID}</th>
-										<th class="textcenter11 dateshort">
-											<fmt:formatDate value="${row.WRITE_DT}" type="DATE" dateStyle="SHORT" />
-										</th>
-									</tr>
-								</tbody>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</table>
-			</li>
-		</ul>
-	</div>
+	<!-- recentPostListBox1 -->
+		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox1.jsp" flush="false"></jsp:include>
+	<!-- recentPostListBox1 -->
+	
+	<!-- recentPostListBox2 -->
+		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox2.jsp" flush="false"></jsp:include>
+	<!-- recentPostListBox2 -->
+	
+	<!-- recentPostListBox3 -->
+		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox3.jsp" flush="false"></jsp:include>
+	<!-- recentPostListBox3 -->
+	
+	<!-- recentPostListBox4 -->
+		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false"></jsp:include>
+	<!-- recentPostListBox4 -->
 	
 	<!-- footer -->
 		<%@include file="/WEB-INF/pages/include/footer.jsp" %>

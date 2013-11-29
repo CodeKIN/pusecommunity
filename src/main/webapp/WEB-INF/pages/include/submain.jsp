@@ -7,19 +7,19 @@
 			<div class="unit-33">
 
 				<div id="banner">
-					<img src="/images/banner.jpg" alt="demobanner" width="500" height="200">
+					<img src="${param.bannersrc}" title="${param.bannerdesc}" alt="${param.bannerdesc}" width="500" height="200">
 				</div>
 
 			</div>
 			<div class="unit-66">
-				<h3>Latest news</h3>
+				<h3>${param.bannerheader}</h3>
 
 				<article id="news">
-					<small class="color-gray">Fri, 01/27/2012</small>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<small class="color-gray">${param.bannerdate1}</small>
+					<p>${param.bannercontent1}</p>
 
-					<small class="color-gray">Fri, 01/26/2012</small>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<small class="color-gray">${param.bannerdate2}</small>
+					<p>${param.bannercontent2}</p>
 				</article>
 			</div>
 		</div>

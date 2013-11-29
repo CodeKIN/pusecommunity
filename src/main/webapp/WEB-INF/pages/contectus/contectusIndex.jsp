@@ -22,6 +22,10 @@
 		<jsp:include page="/WEB-INF/pages/include/contectus/contectusVideo.jsp" flush="false"></jsp:include>
 	<!-- video -->
 	
+	<!-- MessageAlert -->
+		<jsp:include page="/WEB-INF/pages/include/contectus/contectusAlert.jsp" flush="false"></jsp:include>
+	<!-- MessageAlert -->
+	
 	<!-- outer -->
 		<jsp:include page="/WEB-INF/pages/include/contectus/contectusForm.jsp" flush="false"></jsp:include>
 	<!-- outer -->
