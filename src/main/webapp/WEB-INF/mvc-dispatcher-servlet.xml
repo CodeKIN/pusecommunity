@@ -56,7 +56,16 @@
 				<prop key="/news/newsIndex.do">puseCommunityController</prop>
 				<prop key="/market/*.do">puseCommunityController</prop>
 				<prop key="/contectus/*.do">puseCommunityController</prop>
+				
+				<!-- community binds -->
+				
 				<prop key="/community/communityIndex.do">puseCommunityController</prop>
+				
+				
+				<prop key="/community/modules/*.do">puseCommunityController</prop>
+				
+				<!-- community binds -->
+				
 				<prop key="/partners/partnersIndex.do">puseCommunityController</prop>
 				
 				<prop key="/modules/board/*.do">boardController</prop>
@@ -76,4 +85,6 @@
 
 		<property name="order" value="0" />
 	</bean>
+	
+	<mvc:annotation-driven></mvc:annotation-driven>
 </beans>

@@ -38,13 +38,11 @@
 	</select>
 	
 	<select id="selectRecentPostList" resultClass="freeBoard">
-	SELECT POST_ID
-	     , CASE 
+	SELECT CASE 
 		     WHEN LENGTH(SUBJECT) > 40
 		     THEN CONCAT(SUBSTR(SUBJECT, 1, 30), '...') 
 		     ELSE SUBJECT
 		   END AS SUBJECT
-		 , WRITER_ID
 		 , WRITE_DT
 	  FROM board
 	  ORDER BY POST_ID DESC

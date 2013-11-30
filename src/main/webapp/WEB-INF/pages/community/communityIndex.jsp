@@ -12,7 +12,13 @@
 	<jsp:include page="/WEB-INF/pages/include/import.jsp" flush="false"></jsp:include>
 <!-- scripts, styles, meta tags -->
 
+<script src="<c:url value="/js/page/community/communityInit.js"></c:url>"></script>
+
 <style type="text/css">
+table.recentPostList {
+	
+}
+
 table thead.title tr th{
 	color: black;
 	font-weight: bold;
@@ -33,7 +39,6 @@ table thead tr:HOVER,
 table tbody tr:HOVER{
 	background-color: #ffdab9;
 }
-
 </style>
 </head>
 <body style>
@@ -68,11 +73,11 @@ table tbody tr:HOVER{
 		</jsp:include>
 	<!-- recentPostListBox4 -->
 	
-	<!-- recentPostListBox3 -->
+	<!-- recentPostListBox4 -->
 		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false">
 			<jsp:param value="line6" name="recent_type"/>
 		</jsp:include>
-	<!-- recentPostListBox3 -->
+	<!-- recentPostListBox4 -->
 	
 
 	<!-- scripts, styles, meta tags -->

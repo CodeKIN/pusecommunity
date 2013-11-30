@@ -1,5 +1,6 @@
 package org.codekin.modules.board.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -167,11 +168,17 @@ public class BoardService extends CommonService{
 	
 	public List<?> selectRecentPostList() {
 		Map<String, Object> param = new HashMap<String, Object>();
-		Map<String, Object> result = new HashMap<String, Object>();
+		List result = new ArrayList();
 		
 		param.put("max_length", Integer.parseInt(systemProperties.get("board.recent.post.list.length").toString()));
 		
-		return boardDao.selectRecentPostList(systemProperties.get("board.recent.post.type").toString(), param);
+		String[] vsBoardTypes = systemProperties.get("board.recent.post.types").toString().split(",");
+		
+		for(String vsBoardType : vsBoardTypes){
+			result.add(boardDao.selectRecentPostList(vsBoardType, param));
+		}
+		
+		return result;
 	}
 
 	/* ***************************************

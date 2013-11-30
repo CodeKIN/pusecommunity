@@ -1,9 +1,11 @@
 package org.codekin.pusecommunity.service;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.codekin.modules.board.service.BoardService;
 import org.springframework.stereotype.Service;
@@ -23,15 +25,12 @@ public class CommunityService extends CommonService{
 	
 	private Object getBeanResult(Object poBeanInstance, String psTargetMethod, Class...classes)throws Exception{
 		Class beanClass = poBeanInstance.getClass();
-		
 			
 		return beanClass.getDeclaredMethod(psTargetMethod, classes).invoke(poBeanInstance);
 	}
 	
-	public List<Map<String, Object>> selectRecentPostList(Locale locale, Model model) throws Exception{
-		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
-		
-		return (List<Map<String, Object>>) this.getBeanResult(this.getBeanInstance(BoardService.class), "selectRecentPostList");
+	public List<?> selectRecentPostList(Locale locale, Model model) throws Exception{
+		return (List<?>) this.getBeanResult(this.getBeanInstance(BoardService.class), "selectRecentPostList");
 	}
 
 	public Object getClientPage() throws Exception {
@@ -40,5 +39,14 @@ public class CommunityService extends CommonService{
 
 	public Object getBoardType() throws Exception {
 		return this.getBeanResult(this.getBeanInstance(BoardService.class), "getBoardType");
+	}
+
+	public Map<String, Object> recentPostList(Locale locale, Model model) throws Exception {
+		HttpServletRequest request = this.getRequest();
+		Map<String, Object> result = new HashMap<String, Object>();
+		
+		result.put(request.getParameter("board_type") + "RecentList", this.selectRecentPostList(locale, model));
+		
+		return result;
 	}
 }

@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+.units-container a.label{
+	width: 20px;
+	height: 28px;
+}
+
+table thead.title tr:HOVER,
+table tbody.title tr:HOVER{
+	background-color: #F6F5ED;
+}
+
+table thead.title tr th,
+table tbody.title tr td{
+	text-align: center;
+}
+
+table thead tr th,
+table tbody tr td{
+	color: black;
+	font-weight: normal;
+	vertical-align: middle;
+	margin-top: 0;
+	padding-top: 0;
+}
+table thead tr:HOVER,
+table tbody tr:HOVER{
+	background-color: #ffdab9;
+}
+
+table tbody tr{
+	background-color: #ffffff;
+}

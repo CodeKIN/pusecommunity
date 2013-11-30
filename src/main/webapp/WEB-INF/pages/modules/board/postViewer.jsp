@@ -10,21 +10,19 @@
 <title>${post.SUBJECT}</title>
 
 <!-- scripts, styles, meta tags, title tag -->
-<%@include file="/WEB-INF/pages/include/import.jsp" %>
+	<jsp:include page="/WEB-INF/pages/include/import.jsp" flush="false"></jsp:include>
 <!-- scripts, styles, meta tags, title tag -->
 
-<style type="text/css">
-table.width-100.table-simple.table-stroked thead tr th{
-	text-align: center;
-}
+<!-- post viewer css -->
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/postViewer.css"></c:url>" />
+<!-- post viewer css -->
 
-</style>
 </head>
 <body>
 	<div class="wrapper">
 		<div id="units-container">
 			<!-- Header -->
-			<%@include file="/WEB-INF/pages/include/header.jsp" %>
+				<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
 			<!-- Header -->
 	
 			<div id="units-container" align="right">
@@ -95,7 +93,7 @@ table.width-100.table-simple.table-stroked thead tr th{
 	</div>
 	
 	<!-- footer -->
-		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>
 	<!-- footer -->
 </body>
 </html>

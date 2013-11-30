@@ -1,13 +1,17 @@
 package org.codekin.pusecommunity.controller;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
+import org.codehaus.jackson.annotate.JsonWriteNullProperties;
 import org.codekin.pusecommunity.service.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PuseCommunityController {
@@ -84,5 +88,17 @@ public class PuseCommunityController {
 	@RequestMapping(value = "/partners/partnersIndex", method = RequestMethod.GET)
 	public String partnersIndex(Locale locale, Model model) {
 		return "partners/partnersIndex";
+	}
+	
+	/**
+	 * community page
+	 * @param locale
+	 * @param model
+	 * @return
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/community/modules/recentPostList", method = RequestMethod.POST)
+	public @ResponseBody Map<String, Object> recentPostList(Locale locale, Model model) throws Exception {
+		return communityService.recentPostList(locale, model);
 	}
 }

@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+table.width-100.table-simple.table-stroked thead tr th{
+	text-align: center;
+}
+
+#toc-base div.unit-100 h1{
+	margin-bottom: 35px;
+}
+
+#toc-base div.unit-100 p{
+	font-size: 13px;
+}
