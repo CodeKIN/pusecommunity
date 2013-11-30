@@ -12,13 +12,15 @@
 
 </head>
 <body style>
-	<!-- Header -->
-		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
-	<!-- Header -->
-	
-	<!-- newsHeadline -->
-		<jsp:include page="/WEB-INF/pages/include/partners/partnersImageBoxies.jsp" flush="false"></jsp:include>
-	<!-- newsHeadline -->
+	<div id="wrapper">
+		<!-- Header -->
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
+		<!-- Header -->
+		
+		<!-- newsHeadline -->
+			<jsp:include page="/WEB-INF/pages/include/partners/partnersImageBoxies.jsp" flush="false"></jsp:include>
+		<!-- newsHeadline -->
+	</div>
 
 	<!-- footer -->
 		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>

@@ -37,41 +37,64 @@
 	<!-- 인터셉터에 매핑될 컨트롤러 -->
 	<bean id="boardController" class="org.codekin.modules.board.controller.BoardController" />
 
-	<!-- 서블릿 요청에 대한 전처리 공통 인터셉터 -->
-	<bean id="commonHandlerInterceptor" class="org.codekin.pusecommunity.interceptor.CommonHandlerInterceptor" />
-	<!-- 서블릿 요청에 대한 전처리 공통 인터셉터 -->
-	<bean id="boardHandlerInterceptor" class="org.codekin.modules.board.interceptor.BoardHandlerInterceptor" />
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*.do"/>
+			<bean class="org.codekin.pusecommunity.interceptor.CommonHandlerInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/modules/board/*.do"/>
+			<bean class="org.codekin.modules.board.interceptor.BoardHandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 인터셉터, 컨트롤러, URL 매핑 -->
-	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="commonHandlerInterceptor"/>
-				<ref bean="boardHandlerInterceptor" />
-			</list>
-		</property>
-		<property name="mappings">
-			<props>
-				<prop key="/*.do">puseCommunityController</prop>
-				<prop key="/news/newsIndex.do">puseCommunityController</prop>
-				<prop key="/market/*.do">puseCommunityController</prop>
-				<prop key="/contectus/*.do">puseCommunityController</prop>
-				
-				<!-- community binds -->
-				
-				<prop key="/community/communityIndex.do">puseCommunityController</prop>
+<!-- 	<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> -->
+<!-- 		<property name="interceptors"> -->
+<!-- 			<list> -->
+<!-- 				<ref bean="commonHandlerInterceptor"/> -->
+<!-- 				<ref bean="boardHandlerInterceptor" /> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 		<property name="mappings"> -->
+<!-- 			<props> -->
+<!-- 				<prop key="/index.do">puseCommunityController</prop> -->
 				
 				
-				<prop key="/community/modules/*.do">puseCommunityController</prop>
+<!-- 				news binds -->
+<!-- 				<prop key="/news/newsIndex.do">puseCommunityController</prop> -->
+<!-- 				news binds -->
 				
-				<!-- community binds -->
 				
-				<prop key="/partners/partnersIndex.do">puseCommunityController</prop>
 				
-				<prop key="/modules/board/*.do">boardController</prop>
-			</props>
-		</property>
-	</bean>
+<!-- 				market binds -->
+<!-- 				<prop key="/market/*.do">puseCommunityController</prop> -->
+<!-- 				market binds -->
+				
+				
+				
+<!-- 				contectus binds -->
+<!-- 				<prop key="/contectus/*.do">puseCommunityController</prop> -->
+<!-- 				contectus binds -->
+				
+				
+				
+<!-- 				community binds -->
+<!-- 				<prop key="/community/communityIndex.do">puseCommunityController</prop> -->
+<!-- 				<prop key="/community/modules/*.do">puseCommunityController</prop> -->
+<!-- 				community binds -->
+				
+				
+<!-- 				partners binds -->
+<!-- 				<prop key="/partners/partnersIndex.do">puseCommunityController</prop> -->
+<!-- 				partners binds -->
+				
+<!-- 				board module binds -->
+<!-- 				<prop key="/modules/board/*.do">boardController</prop> -->
+<!-- 				board module binds -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -2,13 +2,19 @@ package org.codekin.pusecommunity.model;
 
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class FreeBoard {
+	@JsonProperty
 	private int POST_ID;
+	@JsonProperty
 	private String SUBJECT;
 	private String CONTENT;
 	private int LIKE_COUNT;
 	private int VIEW_COUNT;
+	
 	private String WRITER_ID;
+	@JsonProperty
 	private Date WRITE_DT;
 	
 	public int getPOST_ID() {

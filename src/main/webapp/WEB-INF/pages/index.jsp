@@ -15,17 +15,19 @@
 
 </head>
 <body style>
-	<!-- Header -->
-		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
-	<!-- Header -->
-	
-	<!-- PromoImage -->
-		<jsp:include page="/WEB-INF/pages/include/main/mainPromoImage.jsp" flush="false"></jsp:include>
-	<!-- PromoImage -->
-	
-	<!-- MainBox -->
-		<jsp:include page="/WEB-INF/pages/include/main/mainbox.jsp" flush="false"></jsp:include>
-	<!-- MainBox -->
+	<div id="wrapper">
+		<!-- Header -->
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
+		<!-- Header -->
+		
+		<!-- PromoImage -->
+			<jsp:include page="/WEB-INF/pages/include/main/mainPromoImage.jsp" flush="false"></jsp:include>
+		<!-- PromoImage -->
+		
+		<!-- MainBox -->
+			<jsp:include page="/WEB-INF/pages/include/main/mainbox.jsp" flush="false"></jsp:include>
+		<!-- MainBox -->
+	</div>
 	
 	<!-- footer -->
 		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>

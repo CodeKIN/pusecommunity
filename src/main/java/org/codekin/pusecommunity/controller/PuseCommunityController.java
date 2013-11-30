@@ -1,10 +1,8 @@
 package org.codekin.pusecommunity.controller;
 
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import org.codehaus.jackson.annotate.JsonWriteNullProperties;
 import org.codekin.pusecommunity.service.CommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

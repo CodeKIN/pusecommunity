@@ -13,11 +13,11 @@
 
 </head>
 <body style>
-	<!-- Header -->
-		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
-	<!-- Header -->
+	<div id="wrapper">
+		<!-- Header -->
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
+		<!-- Header -->
 	
-	<div class="wrapper">
 		<ul id="intro" class="blocks-6">
 			<li class="unit-padding">
 				<h3>Hot 아이템!</h3>

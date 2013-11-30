@@ -7,7 +7,7 @@
 <head>
 <title></title>
 <!-- scripts, styles, meta tags, title tag -->
-<%@include file="/WEB-INF/pages/include/import.jsp" %>
+	<jsp:include page="/WEB-INF/pages/include/import.jsp" flush="false"></jsp:include>
 <!-- scripts, styles, meta tags, title tag -->
 
 <script src="<c:url value="/exmodules/smarteditor/js/HuskyEZCreator.js"></c:url>"></script>
@@ -17,7 +17,7 @@
 <body>
 	<div class="wrapper">
 		<!-- Header -->
-		<%@include file="/WEB-INF/pages/include/header.jsp" %>
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
 		<!-- Header -->
 		
 		<div id="units-container" align="right">
@@ -61,7 +61,7 @@
 	</div>
 	
 	<!-- footer -->
-		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>
 	<!-- footer -->
 </body>
 </html>

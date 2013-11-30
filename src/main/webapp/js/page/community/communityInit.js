@@ -17,17 +17,8 @@ jQuery(function() {
 						for(var k in result[i][j]){
 							var target = result[i][j][k];
 							cells += "<tr>";
-							for(var l in target){
-								if(target[l] === null
-								|| target[l] === 0){ continue; };
-								var property = target[l];
-								
-								if(l.indexOf("DT") !== -1){
-									cells += "<td class='dateshort'>" + Common.dateformat(new Date(property), "yyyy.MM.dd") + "</td>";
-								}else{
-									cells += "<td>" + property + "</td>";
-								}
-							}
+								cells += "<td class='subject'><a href='/modules/board/postViewer.do?post_id=" + target["POST_ID"] + "&board_type=" + target["BOARD_TYPE"] + "'>" + target["SUBJECT"] + "</a></td>";
+								cells += "<td class='dateshort'>" + Common.dateformat(new Date(target["WRITE_DT"]), "yyyy.MM.dd") + "</td>";
 							cells += "</tr>";
 						}
 					}

@@ -14,17 +14,19 @@
 
 </head>
 <body style>
-	<!-- Header -->
-		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
-	<!-- Header -->
-	
-	<!-- video -->
-		<jsp:include page="/WEB-INF/pages/include/contectus/contectusVideo.jsp" flush="false"></jsp:include>
-	<!-- video -->
-	
-	<!-- MessageAlert -->
-		<jsp:include page="/WEB-INF/pages/include/contectus/contectusAlert.jsp" flush="false"></jsp:include>
-	<!-- MessageAlert -->
+	<div id="wrapper">
+		<!-- Header -->
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
+		<!-- Header -->
+		
+		<!-- video -->
+			<jsp:include page="/WEB-INF/pages/include/contectus/contectusVideo.jsp" flush="false"></jsp:include>
+		<!-- video -->
+		
+		<!-- MessageAlert -->
+			<jsp:include page="/WEB-INF/pages/include/contectus/contectusAlert.jsp" flush="false"></jsp:include>
+		<!-- MessageAlert -->
+	</div>
 	
 	<!-- outer -->
 		<jsp:include page="/WEB-INF/pages/include/contectus/contectusForm.jsp" flush="false"></jsp:include>

@@ -18,11 +18,11 @@
 
 </head>
 <body>
-
-	<!-- Header -->
-		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
-	<!-- Header -->
 	<div class="wrapper">
+		<!-- Header -->
+			<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
+		<!-- Header -->
+	
 		<table class="width-100 table-striped">
 			<thead class="title">
 				<tr>
@@ -95,8 +95,9 @@
 			<a href="/modules/board/postWriter.do?client_page=${client_page}&board_type=${board_type}" class="label label-blue" style="font-size: 15px;">글쓰기</a>
 		</div>
 	</div>
+	
 	<!-- footer -->
-		<%@include file="/WEB-INF/pages/include/footer.jsp" %>
+		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>
 	<!-- footer -->
 </body>
 </html>

@@ -3,6 +3,8 @@
 
 <sqlMap namespace="freeboard">
 	<typeAlias alias="freeBoard" type="org.codekin.pusecommunity.model.FreeBoard" />
+	<typeAlias alias="jsonrecentpostlist" type="org.codekin.pusecommunity.model.JsonRecentPostList" />
+	
 	<insert id="savePost">
 	INSERT INTO board(
 		   SUBJECT
@@ -37,13 +39,15 @@
 	  LIMIT #startrow#, #endrow#
 	</select>
 	
-	<select id="selectRecentPostList" resultClass="freeBoard">
-	SELECT CASE 
+	<select id="selectRecentPostList" resultClass="jsonrecentpostlist">
+	SELECT POST_ID
+	     , CASE 
 		     WHEN LENGTH(SUBJECT) > 40
 		     THEN CONCAT(SUBSTR(SUBJECT, 1, 30), '...') 
 		     ELSE SUBJECT
 		   END AS SUBJECT
 		 , WRITE_DT
+		 , #board_type# AS BOARD_TYPE
 	  FROM board
 	  ORDER BY POST_ID DESC
 	  LIMIT 0, #max_length#

@@ -6,7 +6,7 @@ ${param.boxcuont}
 ${param.boxsubjects}
 ${param.boxcontents}
 
-<div class="wrapper">
+
 	<ul id="intro" class="blocks-1">
 		<li class="unit-padding">
 			<h3>${param.title}</h3>
@@ -15,4 +15,3 @@ ${param.boxcontents}
 			<a href="#">더 읽기</a>
 		</li>
 	</ul>
-</div>

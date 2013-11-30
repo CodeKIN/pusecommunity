@@ -175,6 +175,7 @@ public class BoardService extends CommonService{
 		String[] vsBoardTypes = systemProperties.get("board.recent.post.types").toString().split(",");
 		
 		for(String vsBoardType : vsBoardTypes){
+			param.put("board_type", vsBoardType);
 			result.add(boardDao.selectRecentPostList(vsBoardType, param));
 		}
 		

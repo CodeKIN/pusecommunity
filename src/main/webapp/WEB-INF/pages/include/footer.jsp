@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <footer id="footer">
-	<div class="wrapper">
+	<div id="wrapper">
 		<section>
 			© 2013 Puse All Rights Reserved
 		</section>

@@ -14,72 +14,23 @@
 
 <script src="<c:url value="/js/page/community/communityInit.js"></c:url>"></script>
 
-<style type="text/css">
-table.recentPostList {
-	
-}
+<!-- postList css -->
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/communityIndex.css"></c:url>" />
+<!-- postList css -->
 
-table thead.title tr th{
-	color: black;
-	font-weight: bold;
-	vertical-align: middle;
-	text-align: center;
-}
-
-table thead tr th,
-table tbody tr td{
-	color: black;
-	font-weight: normal;
-	vertical-align: middle;
-	margin-top: 0;
-	padding-top: 0;
-}
-
-table thead tr:HOVER,
-table tbody tr:HOVER{
-	background-color: #ffdab9;
-}
-</style>
 </head>
 <body style>
 
+<div id="wrapper">
 	<!-- Header -->
 		<jsp:include page="/WEB-INF/pages/include/header.jsp" flush="false"></jsp:include>
 	<!-- Header -->
-	
-	<!-- recentPostListBox1 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox1.jsp" flush="false"></jsp:include>
-	<!-- recentPostListBox1 -->
-	
-	<!-- recentPostListBox2 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox2.jsp" flush="false"></jsp:include>
-	<!-- recentPostListBox2 -->
-	
-	<!-- recentPostListBox4 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false">
-			<jsp:param value="line1" name="recent_type"/>
-		</jsp:include>
-	<!-- recentPostListBox4 -->
-	
-	<!-- recentPostListBox4 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false">
-			<jsp:param value="line2" name="recent_type"/>
-		</jsp:include>
-	<!-- recentPostListBox4 -->
-	
-	<!-- recentPostListBox4 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false">
-			<jsp:param value="line3" name="recent_type"/>
-		</jsp:include>
-	<!-- recentPostListBox4 -->
-	
-	<!-- recentPostListBox4 -->
-		<jsp:include page="/WEB-INF/pages/include/community/recentPostBox4.jsp" flush="false">
-			<jsp:param value="line6" name="recent_type"/>
-		</jsp:include>
-	<!-- recentPostListBox4 -->
-	
-
+	<div id="main">
+	<!-- left Side Menu -->
+		<jsp:include page="/WEB-INF/pages/include/sideBar.jsp" flush="false"></jsp:include>
+	<!-- left Side Menu -->
+	</div>
+</div>
 	<!-- scripts, styles, meta tags -->
 		<jsp:include page="/WEB-INF/pages/include/footer.jsp" flush="false"></jsp:include>
 	<!-- scripts, styles, meta tags -->

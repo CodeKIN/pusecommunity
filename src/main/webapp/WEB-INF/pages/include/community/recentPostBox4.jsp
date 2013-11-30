@@ -57,10 +57,10 @@
 			<jsp:param value="내 짤방 20단 컴보는 말이 필요없지" name="subtitle1" />
 			<jsp:param value="런타임톡" name="title2" />
 			<jsp:param value="아 퇴근하고싶다" name="subtitle2" />
-			<jsp:param value="애니/만화" name="title3" />
-			<jsp:param value="재미지네 아오 ㅋㅋ" name="subtitle3" />
-			<jsp:param value="" name="title4" />
-			<jsp:param value="" name="subtitle4" />
+			<jsp:param value="카메라" name="title3" />
+			<jsp:param value="헠후헠후 사진 찍자!!" name="subtitle3" />
+			<jsp:param value="음악" name="title4" />
+			<jsp:param value="~♬~~♪" name="subtitle4" />
 		</jsp:include>
 	</c:if>
 	
